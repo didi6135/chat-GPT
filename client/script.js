@@ -1,5 +1,5 @@
-import bot from './assets/bot.svg';
-import user from './assets/user.svg';
+import bot from './assets/bot.svg'
+import user from './assets/user.svg'
 
 
 const form = document.querySelector('form');
@@ -87,7 +87,7 @@ const handleSubmit = async (e) => {
   const response = await fetch('https://chat-gpt-vhhe.onrender.com' , {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       prompt: data.get('prompt')
@@ -105,7 +105,7 @@ const handleSubmit = async (e) => {
 
     typeText(messageDiv, paraseData)
   } else {
-    const err = await response.json()
+    const err = await response.text()
 
     messageDiv.innerHTML = "Somthing went worng"
 
@@ -115,9 +115,9 @@ const handleSubmit = async (e) => {
 
 
 
-form.addEventListener('submit' , handleSubmit)
+form.addEventListener('submit', handleSubmit)
 form.addEventListener('keyup', (e) => {
-  if(e.keyCode ==13) {
+  if(e.keyCode === 13) {
     handleSubmit(e)
   }
 })
