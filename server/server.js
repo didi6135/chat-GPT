@@ -1,17 +1,17 @@
  
-import  express  from "express";
-import * as dotenv from 'dotenv';
-import cors from 'cors';
-import { Configuration, OpenAIApi } from "openai";
+import  express  from 'express'
+import * as dotenv from 'dotenv'
+import cors from 'cors'
+import { Configuration, OpenAIApi } from 'openai'
 
 
 dotenv.config()
 
-const configoretion = new Configuration({
-    apiKey: process.env.OPEN_API_KEY,
+const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
 })
 
-const openai = new OpenAIApi(configoretion)
+const openai = new OpenAIApi(configuration)
 
 const app = express()
 app.use(cors())
@@ -25,7 +25,7 @@ app.get('/', async(req,res) => {
 
 app.post('/', async(req, res) => {
     try {
-        const prompt = req.body.prompt
+        const prompt = req.body.prompt;
         const response = await openai.createCompletion({
             model: "text-davinci-003",
             prompt: `${prompt}`,
