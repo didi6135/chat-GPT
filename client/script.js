@@ -1,9 +1,9 @@
 import bot from './assets/bot.svg';
-import user from './assets/user.svg'
+import user from './assets/user.svg';
 
 
-const form = document.querySelector('form')
-const chetConteiner = document.querySelector('#chat_conteiner')
+const form = document.querySelector('form');
+const chetConteiner = document.querySelector('#chat_conteiner');
 
 let loadInterval;
 
@@ -67,13 +67,13 @@ function chatStripe(isAi, value, uniqueId) {
 
 
 const handleSubmit = async (e) => {
-  e.preventDefault()
+  e.preventDefault();
 
   const data = new FormData(form)
 
-  chetConteiner.innerHTML += chatStripe(false, data.get('prompt'))
+  chetConteiner.innerHTML += chatStripe(false, data.get('prompt'));
 
-  form.reset()
+  form.reset();
 
   const uniqueId = generateUniqueId()
   chetConteiner.innerHTML += chatStripe(true, " ", uniqueId)
